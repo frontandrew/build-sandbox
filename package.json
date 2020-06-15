@@ -1,0 +1,15 @@
+{
+  "name": "build-sandbox",
+  "version": "0.0.1",
+  "description": "Sandbox to learn React application build",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/frontandrew/build-sandbox"
+  },
+  "author": "Andrew Bubnov <jackblack.nt@ya.ru>",
+  "license": "MIT"
+}
