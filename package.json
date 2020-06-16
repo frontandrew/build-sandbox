@@ -12,12 +12,6 @@
   },
   "author": "Andrew Bubnov <jackblack.nt@ya.ru>",
   "license": "MIT",
-  "browserslist": [ 
-    "last 2 chrome versions",
-    "last 2 firefox versions",
-    "last 2 ios versions",
-    "last 2 safari versions"
-  ],
   "devDependencies": {
     "@babel/cli": "^7.10.1",
     "@babel/core": "^7.10.2",
