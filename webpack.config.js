@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: "development",
@@ -17,7 +18,7 @@ module.exports = {
       {
         test: /\.css$/,        
         use: [
-          { loader: 'style-loader' },
+          { loader: MiniCssExtractPlugin.loader },
           { loader: 'css-loader' },
         ]
       },
@@ -27,7 +28,7 @@ module.exports = {
         test: /\.s[ca]ss$/,
         // если у лоадера нет доп опций, можно передавать только его имя
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',
         ]
@@ -68,6 +69,10 @@ module.exports = {
       title: 'Build SandBox',
       buildTime: new Date().toString(),
       template: 'index.html'
-    })
+    }),
+
+    new MiniCssExtractPlugin({
+      filename: '[name]-[hash:7].css'
+    }),
   ]
 };
