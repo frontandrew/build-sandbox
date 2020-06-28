@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   mode: "development",
 
@@ -8,14 +10,12 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [
-          { loader: 'babel-loader', }
-        ]
+        loader: 'babel-loader' // упрощеный синтаксис блока 'use'
       },
 
       // CSS
       {
-        test: /\.css$/,
+        test: /\.css$/,        
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
@@ -25,10 +25,11 @@ module.exports = {
       // SCSS or SASS
       {
         test: /\.s[ca]ss$/,
+        // если у лоадера нет доп опций, можно передавать только его имя
         use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' },
+          'style-loader',
+          'css-loader',
+          'sass-loader',
         ]
       },
 
@@ -60,5 +61,13 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Build SandBox',
+      buildTime: new Date().toString(),
+      template: 'index.html'
+    })
+  ]
 };
